@@ -1,9 +1,128 @@
-### Get all users
-GET {{ BASE_URL }}/users
-Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlkIjoyLCJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU1MzY4MjY1LCJleHAiOjE3NTUzNjkxNjV9.QwGp5KZn6NTAv9um4EczhkjxjIOpQCMxL2D7rGJSNnU
 
-### Get a user by ID
-GET http://localhost:3000/users/1
-Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlkIjoyLCJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU1MzY4MjY1LCJleHAiOjE3NTUzNjkxNjV9.QwGp5KZn6NTAv9um4EczhkjxjIOpQCMxL2D7rGJSNnU
+### ==================== HEALTH CHECK ENDPOINTS ====================
+
+# health check
+GET http://localhost:3000/health
+
+####
+
+### ==================== AUTH ENDPOINTS ====================
+
+# Register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+ "email": "newuser@example.com",
+ "password": "Password123!",
+ "role": "user"
+}
+
+###
+
+
+# Register a new user (admin)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+ "email": "newadminuser@example.com",
+ "password": "Password123!",
+ "role": "admin"
+}
+
+###
+
+# Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+ "email": "newadminuser@example.com",
+ "password": "Password123!"
+}
+
+###
+
+# Refresh access token
+POST http://localhost:3000/auth/refresh
+Content-Type: application/json
+x-csrf-token: csrftokensecret12
+
+{
+ "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTYwMTkzMjN9.h4ScFcDj9YxJ-Ylmtvm0g4FR7ung8ITToAMEFUxDjhs"
+}
+
+###
+
+# Logout (requires Bearer token)
+POST http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+### ==================== USER ENDPOINTS ====================
+
+# Get current logged-in user profile
+GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+# Get all users (Admin only)
+GET http://localhost:3000/users?page=1&perPage=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+# Soft delete a user (Admin only)
+DELETE http://localhost:3000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+### ==================== ORDER ENDPOINTS ====================
+
+# Create an order
+POST http://localhost:3000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+Content-Type: application/json
+
+{
+   "items":[
+       {
+           "id": 1,
+           "quantity": 2,
+           "name": "tst product"
+       }
+   ]
+}
+
+###
+
+# Get a single order (details)
+GET http://localhost:3000/orders/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+# Get all orders (Admin only)
+GET http://localhost:3000/orders?page=1&perPage=10&status=PROCESSING
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+
+###
+
+# Update order status (Admin only)
+PATCH http://localhost:3000/orders/1/status
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
+Content-Type: application/json
+
+{
+ "status": "COMPLETED"
+}
+
+###
+
+# Soft delete an order (Admin only)
+DELETE http://localhost:3000/orders/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImlkIjo2LCJ1c2VySWQiOjYsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU1NDE0NTIzLCJleHAiOjE3NTU0MTYzMjN9._vFuvbVVd4kOakQSYFUtq5fuVrvwfhxcQZ_Zs3_v7sE
