@@ -8,8 +8,8 @@ services:
     depends_on:
       - db
       - redis
-    volumes:
-      - ./:/app
+    # volumes:
+    #   - ./:/app
   db:
     image: postgres:latest
     container_name: postgres-db

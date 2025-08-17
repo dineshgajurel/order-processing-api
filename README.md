@@ -23,6 +23,7 @@ git clone https://github.com/dineshgajurel/order-processing-api.git
 ```bash
 npm install
 ```
+- need to install to start/build locally 
 
 ## environment setup
 
@@ -87,9 +88,6 @@ HINT:
 ```bash
 npm run test
 ```
-
-Note: Test script will trigger after `npm run build ` before running the app. So, no need to manually do it (migt be applicable if want to run alternatively)
-
 Note: For this time the test covarage is not higher, just wanted to showcase (my ability 😊) the funcationalites with test cases,
 so there are two test suites available
 
