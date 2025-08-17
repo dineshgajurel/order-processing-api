@@ -114,6 +114,10 @@ Basic archticture diagram to illustrates the overview of the implementation
 
 [Architecture Diagram](https://lucid.app/lucidchart/f310969a-085d-4923-bb9d-54e29f00a254/edit?viewport_loc=-1045%2C-821%2C2705%2C1189%2C0_0&invitationId=inv_d7689ae2-19d5-4cd6-8d92-5cde0be52f6e)
 
+## Demo/recording of the api
+
+ - [here](https://drive.google.com/drive/folders/1uyyFLRASU-_XdKEIsz3GXRdr63U72r5e?usp=sharing) 
+
 ## Web socket testing
 
 - To test and verify web socket
@@ -138,6 +142,10 @@ Basic archticture diagram to illustrates the overview of the implementation
 - Logout functionalities implementation
   - Just simulated the endpoints for now
   - tried to implement token revocation with redis or postgres db, there were few issues and complexities, so could not implement for now (sorry for this 😊 )
+
+- cache invalidation
+  - invalidated the individual order details as per the need
+  - but in case of adding/updating/deleting new order we can simply update the cache (with particular order) but for now simply deleted the order:list* cache for simplicity (to implement quickly)
 
 
 # Major Tools and Technologies
