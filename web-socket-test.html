@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Test</title>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <h3>Websocket notification test</h3>
+  <script>
+    const socket = io("http://localhost:3000", { transports: ["websocket"] });
+
+    socket.on("connect", () => {
+      console.log("Connected to WebSocket server");
+      socket.emit("joinRoom", 2);
+    });
+
+    socket.on("userNotification", (data) => {
+      console.log("User notification received:", data);
+    });
+
+    socket.on("adminNotification", (data) => {
+      console.log("Admin notification received:", data);
+    });
+  </script>
+</body>
+</html>

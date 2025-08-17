@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    container_name: order-processing-api
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./:/app
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: orderuser
+      POSTGRES_PASSWORD: orderpassword12
+      POSTGRES_DB: orders_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:latest
+    container_name: redis-db
+    command: redis-server --requirepass redispassword12
+    ports:
+      - '6379:6379'
+volumes:
+  pgdata:

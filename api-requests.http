@@ -1,0 +1,9 @@
+### Get all users
+GET {{ BASE_URL }}/users
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlkIjoyLCJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU1MzY4MjY1LCJleHAiOjE3NTUzNjkxNjV9.QwGp5KZn6NTAv9um4EczhkjxjIOpQCMxL2D7rGJSNnU
+
+### Get a user by ID
+GET http://localhost:3000/users/1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlkIjoyLCJ1c2VySWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU1MzY4MjY1LCJleHAiOjE3NTUzNjkxNjV9.QwGp5KZn6NTAv9um4EczhkjxjIOpQCMxL2D7rGJSNnU
