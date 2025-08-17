@@ -1,10 +1,11 @@
 import {
-  IsAlphanumeric,
+  // IsAlphanumeric,
   IsEmail,
   IsEnum,
   IsNotEmpty,
   IsOptional,
   IsString,
+  Matches,
   MinLength,
 } from 'class-validator';
 import { UserRole } from 'src/common/enums/common.enum';
@@ -15,7 +16,11 @@ export class RegisterDto {
   email: string;
 
   @IsNotEmpty()
-  @IsAlphanumeric()
+  // @IsAlphanumeric()
+  @Matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).+$/, {
+    message:
+      'Password must contain at least 1 letter, 1 number, and 1 special character',
+  })
   @MinLength(8)
   password: string;
 

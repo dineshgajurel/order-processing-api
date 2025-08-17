@@ -14,7 +14,9 @@ import { AuthUser } from 'src/auth/decorators/auth-user.decorator';
 import type { JwtPayload } from 'src/common/interfaces/auth.interface';
 import { PaginationDto } from '../common/dto/pagination.dto';
 import { UserRole } from 'src/common/enums/common.enum';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}

@@ -139,6 +139,10 @@ so there are two test suites available
 
 # Resources
 
+## Swagger API docs
+
+- Swagger docs UI can be accessed and tested on ,[ localhost:3000/api/docs](http://localhost:3000/api/docs)
+
 ## Sample API requests (to test)
 
 - The `api-requests.http` file is available in the root
@@ -161,7 +165,8 @@ Basic archticture diagram to understand the overview of the implementation
 
 # Further improvements (TODO)
 
-- Remaining Test coverage (TDD)
 - Comprehensive Architechture diagram supported by extra flow diagram
+- Full/Most Test coverage (TDD)
 - Further refactor to better handle structure/architecture
+- Enhanced API documentation using Swagger/OpenAPI syntax including accurate request/response examples and error cases
 - Logout full functionalities (just simulated the endpoints for now)

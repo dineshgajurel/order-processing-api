@@ -20,7 +20,9 @@ import { AuthUser } from 'src/auth/decorators/auth-user.decorator';
 import type { JwtPayload } from 'src/common/interfaces/auth.interface';
 import { UserRole } from 'src/common/enums/common.enum';
 import { OrderQueryDto } from './dto/order-query.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @UseGuards(JwtAuthGuard)
 @Controller('orders')
 export class OrderController {

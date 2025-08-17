@@ -8,7 +8,9 @@ import { ThrottlerGuard } from '@nestjs/throttler';
 import { CsrfGuard } from './guards/csrf.guard';
 import { AuthUser } from './decorators/auth-user.decorator';
 import type { JwtPayload } from 'src/common/interfaces/auth.interface';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
