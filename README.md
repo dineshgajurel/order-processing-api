@@ -47,8 +47,16 @@ Distributed Order Processing API
 
 ## Clone Repository
 
+- SSH
+
 ```bash
-git clone
+git clone git@github.com:dineshgajurel/order-processing-api.git
+```
+
+- HTTPS (optional)
+
+```bash
+git clone https://github.com/dineshgajurel/order-processing-api.git
 ```
 
 ## Install dependancies
@@ -59,8 +67,15 @@ $ npm install
 
 ## environment setup
 
-there is `.env.example` file in the root coy it to `.env`
-you can update as per the need, but for now with default docker config, it will work fine (if not please verify)
+1. Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+- you can update as per the need, but for now with default docker config, it will work fine (if not please verify)
+
+- NOTE: This is just to make it easier `.env.example` contains the auth/password as per the docker-config, (only for local purpose)
 
 ## Docker setup and run in local
 
@@ -76,7 +91,7 @@ service will run in 3000, 5432 and 6379 respectively (Default port)
 
 you are freee to modify/update if needed
 
-## Migration run
+## Migration run (no need to manually run)
 
 1.  There is migration script available in package.json
 
@@ -86,7 +101,7 @@ HINT
 $ npm run migration:run
 ```
 
-Note: Migration script will trigger after `npm run build ` before serving the app in container. so no need to manually do it (migt be applicable if want to run alternatively)
+Note: Migration script will be triggered after `npm run build ` before serving the app in container. so no need to manually do it (migt be applicable if want to run alternatively)
 
 # Compile and run the project (alternative)
 
@@ -124,6 +139,12 @@ so there are two test suites available
 
 # Resources
 
+## Sample API requests (to test)
+
+- The `api-requests.http` file is available in the root
+
+  [here](https://github.com/dineshgajurel/order-processing-api/blob/main/api-requests.http)
+
 ## Architechture Diagram
 
 Basic archticture diagram to understand the overview of the implementation
@@ -132,15 +153,15 @@ Basic archticture diagram to understand the overview of the implementation
 
 ## Web socket testing
 
-to test and verify web socket
+- To test and verify web socket
 
-(web-socket-test.html) file in the root
+  (web-socket-test.html) file in the root
 
-[here]()
+  [here](https://github.com/dineshgajurel/order-processing-api/blob/main/web-socket-test.html)
 
 # Further improvements (TODO)
 
 - Remaining Test coverage (TDD)
 - Comprehensive Architechture diagram supported by extra flow diagram
-- Further refactor to mange files and folder structures
+- Further refactor to better handle structure/architecture
 - Logout full functionalities (just simulated the endpoints for now)
