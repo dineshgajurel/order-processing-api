@@ -145,7 +145,7 @@ Basic archticture diagram to illustrates the overview of the implementation
 
 - cache invalidation
   - invalidated the individual order details as per the need
-  - but in case of adding/updating/deleting new order we can simply update the cache (with particular order) but for now simply deleted the order:list* cache for simplicity (to implement quickly)
+  - but in case of adding/updating/deleting  order we can simply update the cache (with particular order) but for now simply deleted the orders:list* cache for simplicity (to implement quickly)
 
 
 # Major Tools and Technologies
